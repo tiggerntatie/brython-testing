@@ -1,0 +1,35 @@
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js" ></script>
+<!-- <script type="text/javascript" src="http://www.brython.info/src/brython_dist.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.2.5/pixi.js"></script>
+<!-- <script src="./py_VFS.js"></script> -->
+<script type = "text/javascript" src="./brython.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.21/paper-full.min.js"></script> -->
+</head>
+<body id="body" onload="brython(1)">
+
+<script type="text/python">
+from pixi import *
+from random import randint
+        
+interactive = True
+stage = Stage(0xF0F0F0, interactive)
+renderer = PIXI.autoDetectRenderer(1000, 650)
+#print(dir(document.body.append))
+document.body.appendChild(renderer.view)
+
+def animate(arg1):
+  window.requestAnimFrame(animate)
+  for s in sprites:
+    s.poll()
+  renderer.render(stage)
+
+window.requestAnimFrame(animate)
+</script>
+<script type="text/python" src="./main.py"></script>
+
+</body>
+</html>
